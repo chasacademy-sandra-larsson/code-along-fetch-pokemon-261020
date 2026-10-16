@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Synkront och asynkront</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <script src="js/main.js" defer></script>
+  </head>
+  <body>
+    <main class="container stack gap-l">
+      <header class="stack gap-xs">
+        <h1 class="title">Synkront och asynkront</h1>
+        <p class="text-muted">
+          Gissa i vilken ordning raderna loggas innan du klickar. Loggen syns både här och i konsolen.
+        </p>
+      </header>
+
+      <section class="heartbeat cluster" aria-label="Lever sidan?">
+        <p>Sidan har levt i <strong class="heartbeat-clock" id="clock">0.0 s</strong></p>
+        <label class="cluster gap-xs">
+          Skriv något medan en demo kör:
+          <input class="input" type="text" />
+        </label>
+      </section>
+
+      <div class="demo-grid" id="demo-buttons">
+        <button class="button" type="button" data-demo="sync">1. Uppifrån och ner</button>
+        <button class="button" type="button" data-demo="block">2. Blockera i 3 sekunder</button>
+        <button class="button" type="button" data-demo="timeout">3. Vänta i 3 sekunder</button>
+        <button class="button" type="button" data-demo="timeoutZero">4. setTimeout med 0 ms</button>
+        <button class="button" type="button" data-demo="promise">5. Vad returnerar fetch?</button>
+        <button class="button" type="button" data-demo="tooEarly">6. Det vanligaste felet</button>
+        <button class="button" type="button" data-demo="asyncAwait">7. async och await</button>
+        <button class="button" type="button" data-demo="quiz" data-variant="ghost">Extra: Vem går först?</button>
+      </div>
+
+      <section class="stack gap-xs" aria-label="Logg">
+        <h2 class="log-title" id="log-title">Logg</h2>
+        <ol class="log" id="log"></ol>
+      </section>
+    </main>
+  </body>
+</html>

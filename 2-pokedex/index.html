@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokédex</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <script src="js/main.js" defer></script>
+  </head>
+  <body>
+    <main class="container stack gap-l">
+      <header class="stack gap-xs">
+        <h1 class="title">Pokédex</h1>
+        <p class="text-muted">Skriv en typ på engelska, till exempel fire, water eller dragon.</p>
+      </header>
+
+      <form class="search-form cluster" id="search-form">
+        <label class="visually-hidden" for="type-input">Typ</label>
+        <input
+          class="input"
+          id="type-input"
+          type="text"
+          list="type-suggestions"
+          placeholder="fire"
+          autocomplete="off"
+          required
+        />
+        <datalist id="type-suggestions">
+          <option value="normal"></option>
+          <option value="fire"></option>
+          <option value="water"></option>
+          <option value="grass"></option>
+          <option value="electric"></option>
+          <option value="ice"></option>
+          <option value="fighting"></option>
+          <option value="poison"></option>
+          <option value="ground"></option>
+          <option value="flying"></option>
+          <option value="psychic"></option>
+          <option value="bug"></option>
+          <option value="rock"></option>
+          <option value="ghost"></option>
+          <option value="dragon"></option>
+          <option value="dark"></option>
+          <option value="steel"></option>
+          <option value="fairy"></option>
+          <option value="stellar"></option>
+        </datalist>
+        <button class="button" id="search-button" type="submit">Hämta</button>
+      </form>
+
+      <section class="stack gap-s" aria-label="Resultat">
+        <p class="status" id="status" role="status">Inget hämtat än.</p>
+        <ul class="pokemon-list" id="pokemon-list"></ul>
+      </section>
+    </main>
+  </body>
+</html>
