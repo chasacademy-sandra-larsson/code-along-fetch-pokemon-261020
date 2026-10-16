@@ -21,7 +21,7 @@ Klockan högst upp går så länge sidan lever. Stannar den, och det går inte a
 
 `2-pokedex/` hämtar alla pokémon av en typ. HTML:en och CSS:en är klara, och vi skriver JavaScripten i `js/main.js` steg för steg.
 
-1. **Hämta och logga.** `fetch`, `await` och `response.json()`.
+1. **Hämta och logga.** En egen `async`-funktion med `fetch`, `await` och `response.json()`.
 2. **Rendera.** Ett `li` per pokémon.
 3. **404.** `fetch` kastar inget fel när något inte finns. Titta på `response.ok`.
 4. **Tomt.** Svaret kom, men listan är tom.
