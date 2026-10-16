@@ -139,104 +139,6 @@ function demoTimeoutZero() {
   log("C: efter setTimeout");
 }
 
-// Demo 5: Vad returnerar fetch?
-// ---------------------------------------------------------------
-// Gissa: vad står i result direkt efter anropet?
-// Min gissning:
-//
-// .then(funktion) betyder: när löftet är uppfyllt, kör funktionen
-// med svaret.
-
-const API_URL = "https://pokeapi.co/api/v2/pokemon/pikachu";
-
-function demoPromise() {
-  startDemo("5. Vad returnerar fetch?");
-
-  const result = fetch(API_URL);
-  log("A: fetch returnerade ett Promise (öppna det i konsolen)", result);
-
-  result
-    .then((response) => response.json())
-    .then((pikachu) => {
-      log(`B: nu har svaret kommit: ${pikachu.name}, ${pikachu.height * 10} cm`);
-    });
-
-  log("C: koden har redan gått vidare");
-}
-
-// Demo 6: Det vanligaste felet
-// ---------------------------------------------------------------
-// Vi vill spara svaret i en variabel och använda det direkt efter.
-//
-// Gissa: vad loggas på rad A?
-// Min gissning:
-
-function demoTooEarly() {
-  startDemo("6. Det vanligaste felet");
-
-  let pokemon;
-
-  fetch(API_URL)
-    .then((response) => response.json())
-    .then((data) => {
-      pokemon = data;
-      log(`B: nu är pokemon satt: ${pokemon.name}`);
-    });
-
-  log(`A: pokemon är ${pokemon}`);
-}
-
-// Demo 7: async och await
-// ---------------------------------------------------------------
-// Samma sak som .then, men det läses uppifrån och ner. await pausar
-// funktionen tills löftet är uppfyllt, och ger oss värdet direkt.
-//
-// Gissa: i vilken ordning loggas A, B, C och D?
-// Min gissning:
-
-async function fetchPikachu() {
-  log("B: inuti fetchPikachu, före await");
-
-  const response = await fetch(API_URL);
-  const pikachu = await response.json();
-
-  log(`C: efter await: ${pikachu.name}, typ ${pikachu.types[0].type.name}`);
-}
-
-function demoAsyncAwait() {
-  startDemo("7. async och await");
-
-  log("A: innan anropet");
-  fetchPikachu();
-  log("D: efter anropet");
-}
-
-// Extra: Promise mot setTimeout
-// ---------------------------------------------------------------
-// För den som vill gräva. Det här behövs inte för att använda fetch.
-//
-// Gissa: i vilken ordning loggas A, B, C och D?
-// Min gissning:
-//
-// Fördjupning: Philip Roberts, "What the heck is the event loop
-// anyway?" på YouTube.
-
-function demoQuiz() {
-  startDemo("Extra: Vem går först?");
-
-  log("A: synkront");
-
-  setTimeout(() => {
-    log("B: setTimeout 0 ms");
-  }, 0);
-
-  Promise.resolve().then(() => {
-    log("C: Promise.then");
-  });
-
-  log("D: synkront");
-}
-
 // Knapparna
 // ---------------------------------------------------------------
 // En lyssnare för alla knappar, som i todolistan. data-demo på
@@ -247,10 +149,6 @@ const demos = {
   block: demoBlock,
   timeout: demoTimeout,
   timeoutZero: demoTimeoutZero,
-  promise: demoPromise,
-  tooEarly: demoTooEarly,
-  asyncAwait: demoAsyncAwait,
-  quiz: demoQuiz,
 };
 
 document.querySelector("#demo-buttons").addEventListener("click", (event) => {

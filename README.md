@@ -10,7 +10,7 @@ Det måste vara Live Server. Med `file://` får fetch inte läsa filer, och då 
 
 ## Del 1: Synkront och asynkront
 
-`1-synkront-asynkront/` är en sida med sju knappar och en extra. Varje knapp kör en kort demo och loggar resultatet både på sidan och i konsolen. Koden ligger i `js/main.js`. Gissa vad som händer innan du klickar.
+`1-synkront-asynkront/` är en sida med fyra knappar. Varje knapp kör en kort demo och loggar resultatet både på sidan och i konsolen. Koden ligger i `js/main.js`. Gissa vad som händer innan du klickar.
 
 Klockan högst upp går så länge sidan lever. Stannar den, och det går inte att skriva i textfältet, är tråden upptagen.
 
@@ -18,10 +18,6 @@ Klockan högst upp går så länge sidan lever. Stannar den, och det går inte a
 2. **Blockera i 3 sekunder.** En loop som fryser hela sidan. Så skulle det vara om fetch var synkron.
 3. **Vänta i 3 sekunder.** Samma väntan med `setTimeout`, och sidan lever.
 4. **setTimeout med 0 ms.** Kommer ändå sist.
-5. **Vad returnerar fetch?** Ett Promise, inte datan.
-6. **Det vanligaste felet.** Att använda svaret innan det har kommit.
-7. **async och await.** `await` pausar funktionen, inte programmet.
-8. **Extra: Vem går först?** Varför `Promise.then` går före `setTimeout`.
 
 ## Del 2: Pokédex
 
@@ -48,7 +44,7 @@ Klockan högst upp går så länge sidan lever. Stannar den, och det går inte a
 ## Det här övar du på
 
 - **Synkront och asynkront.** En tråd, en sak i taget, och varför man inte vill att den väntar.
-- **Promise, `.then`, `async` och `await`.**
+- **Promise, `async` och `await`.**
 - **fetch och JSON.** Två steg: först svaret, sedan `response.json()`.
 - **HTTP i Network-fliken.** Metod, statuskod och svar.
 - **De tre lägena:** laddar, fel och tomt. Det är ett G-krav i u02.
