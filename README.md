@@ -6,8 +6,6 @@ Code-along i två delar. Först ser vi vad skillnaden mellan synkron och asynkro
 
 Öppna mappen i VS Code och starta Live Server. Öppna DevTools (F12) och ha både **Console** och **Network** synliga.
 
-Det måste vara Live Server. Med `file://` får fetch inte läsa filer, och då fungerar inte steg 2 i Pokédexen.
-
 ## Del 1: Synkront och asynkront
 
 `1-synkront-asynkront/` är en sida med fyra knappar. Varje knapp kör en kort demo och loggar resultatet både på sidan och i konsolen. Koden ligger i `js/main.js`. Gissa vad som händer innan du klickar.
@@ -23,13 +21,11 @@ Klockan högst upp går så länge sidan lever. Stannar den, och det går inte a
 
 `2-pokedex/` hämtar alla pokémon av en typ. HTML:en och CSS:en är klara, och vi skriver JavaScripten i `js/main.js` steg för steg.
 
-1. Hämta elementen från DOM:en.
-2. Första fetch, mot JSON-filen `data/fire.json`.
-3. Rendera listan.
-4. Byt till det riktiga API:et. Samma form på datan, ny adress.
-5. `fetch` kastar inget fel vid 404. Titta på `response.ok`.
-6. Laddar och fel med `try...catch...finally`.
-7. Tomt svar.
+1. **Hämta och logga.** `fetch`, `await` och `response.json()`.
+2. **Rendera.** Ett `li` per pokémon.
+3. **404.** `fetch` kastar inget fel när något inte finns. Titta på `response.ok`.
+4. **Tomt.** Svaret kom, men listan är tom.
+5. **Laddar och fel.** `try...catch`.
 
 ### Testa alla lägen
 
@@ -48,13 +44,12 @@ Klockan högst upp går så länge sidan lever. Stannar den, och det går inte a
 - **fetch och JSON.** Två steg: först svaret, sedan `response.json()`.
 - **HTTP i Network-fliken.** Metod, statuskod och svar.
 - **De tre lägena:** laddar, fel och tomt. Det är ett G-krav i u02.
-- **Två sorters fel.** Servern svarar med fel statuskod, eller servern svarar inte alls.
 
 ## Bygg vidare
 
-1. Klicka på ett kort för att hämta mer om den pokémonen, till exempel vikt och förmågor, från `url` i listan.
-2. Knappen stängs av medan det laddar. Ta bort det och sök två gånger snabbt. Kan fel lista hamna på sidan?
-3. Visa bara de 20 första och lägg till en knapp **Visa fler**.
-4. Hämta listan över alla typer från `https://pokeapi.co/api/v2/type` och fyll `datalist` från den i stället för att ha typerna i HTML:en.
+1. Visa en bild på varje pokémon. Id:t står näst sist i `url`, och bilden ligger på `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/<id>.png`.
+2. Felet vid Offline säger bara "Failed to fetch". Visa något begripligare. Tips: det felet är ett `TypeError`.
+3. Stäng av knappen medan det laddar, och slå på den igen i `finally`.
+4. Klicka på en pokémon för att hämta mer om den från `url`, till exempel vikt och förmågor.
 
 *// Sandra*

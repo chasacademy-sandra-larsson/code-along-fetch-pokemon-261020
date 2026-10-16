@@ -7,7 +7,7 @@
    1. Tokens       Färger, avstånd och radier som custom properties.
    2. Reset & bas  Elementen själva, utan klasser.
    3. Layout       .container, .stack, .cluster: VAR saker ligger.
-   4. Komponenter  .button, .status, .pokemon-card: HUR saker ser ut.
+   4. Komponenter  .button, .status, .pokemon-list: HUR saker ser ut.
    5. Utilities    En sak per klass: .visually-hidden, .gap-s.
 
    Statusraden har tre lägen som JavaScript sätter med
@@ -61,11 +61,6 @@ body {
   background: var(--color-bg);
 }
 
-img {
-  display: block;
-  max-width: 100%;
-}
-
 :focus-visible {
   outline: 0.3rem solid var(--color-accent);
   outline-offset: 0.2rem;
@@ -111,11 +106,6 @@ img {
 
 .button:hover {
   background: var(--color-accent-hover);
-}
-
-.button:disabled {
-  opacity: 0.5;
-  cursor: progress;
 }
 
 .input {
@@ -176,42 +166,21 @@ img {
   }
 }
 
-/* Listan och korten */
+/* Listan: ett namn per pokémon, som små etiketter på rad */
 
 .pokemon-list {
   list-style: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
-  gap: var(--space-s);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
 }
 
-.pokemon-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: var(--space-s) var(--space-s) var(--space-m);
+.pokemon-list > li {
+  padding: var(--space-xs) var(--space-s);
   background: var(--color-surface);
   border: 0.1rem solid var(--color-border);
   border-radius: var(--radius);
-  text-align: center;
-}
-
-/* Spritesen är pixelgrafik, så de ska inte bli suddiga när de skalas upp */
-.pokemon-card-image {
-  width: 9.6rem;
-  height: 9.6rem;
-  image-rendering: pixelated;
-}
-
-.pokemon-card-name {
-  font-size: var(--font-size-m);
   text-transform: capitalize;
-  overflow-wrap: anywhere;
-}
-
-.pokemon-card-id {
-  font-size: var(--font-size-s);
-  color: var(--color-muted);
 }
 
 /* 5. Utilities --------------------------------------------------- */
