@@ -24,12 +24,36 @@
         </label>
       </section>
 
-      <div class="demo-grid" id="demo-buttons">
-        <button class="button" type="button" data-demo="sync">1. Uppifrån och ner</button>
-        <button class="button" type="button" data-demo="block">2. Blockera i 3 sekunder</button>
-        <button class="button" type="button" data-demo="timeout">3. Vänta i 3 sekunder</button>
-        <button class="button" type="button" data-demo="timeoutZero">4. setTimeout med 0 ms</button>
-      </div>
+      <ul class="demo-grid" id="demo-buttons">
+        <li class="demo-card">
+          <button class="button" type="button" data-demo="sync">1. Uppifrån och ner</button>
+          <p class="demo-card-function">Kör <code>demoSync()</code> i js/main.js</p>
+          <pre class="demo-card-code"><code>log("A: först");
+sayHello(); // loggar B och C
+log("D: sist");</code></pre>
+        </li>
+        <li class="demo-card">
+          <button class="button" type="button" data-demo="block">2. Blockera i 3 sekunder</button>
+          <p class="demo-card-function">Kör <code>demoBlock()</code> i js/main.js</p>
+          <pre class="demo-card-code"><code>log("Start, nu fryser sidan");
+while (Date.now() &lt; end) {}
+log("Klar, nu lever sidan igen");</code></pre>
+        </li>
+        <li class="demo-card">
+          <button class="button" type="button" data-demo="timeout">3. Vänta i 3 sekunder</button>
+          <p class="demo-card-function">Kör <code>demoTimeout()</code> i js/main.js</p>
+          <pre class="demo-card-code"><code>log("A");
+setTimeout(() =&gt; log("B"), 3000);
+log("C");</code></pre>
+        </li>
+        <li class="demo-card">
+          <button class="button" type="button" data-demo="timeoutZero">4. setTimeout med 0 ms</button>
+          <p class="demo-card-function">Kör <code>demoTimeoutZero()</code> i js/main.js</p>
+          <pre class="demo-card-code"><code>log("A");
+setTimeout(() =&gt; log("B"), 0);
+log("C");</code></pre>
+        </li>
+      </ul>
 
       <section class="stack gap-xs" aria-label="Logg">
         <h2 class="log-title" id="log-title">Logg</h2>

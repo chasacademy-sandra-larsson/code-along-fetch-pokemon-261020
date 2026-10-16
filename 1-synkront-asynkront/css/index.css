@@ -7,7 +7,7 @@
    1. Tokens       Färger, avstånd och radier som custom properties.
    2. Reset & bas  Elementen själva, utan klasser.
    3. Layout       .container, .stack, .cluster: VAR saker ligger.
-   4. Komponenter  .button, .heartbeat, .log: HUR saker ser ut.
+   4. Komponenter  .button, .demo-card, .log: HUR saker ser ut.
    5. Utilities    En sak per klass: .visually-hidden, .gap-s.
 
    ============================================================= */
@@ -139,9 +139,41 @@ body {
 }
 
 .demo-grid {
+  list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+  gap: var(--space-m);
+}
+
+/* Ett kort per demo: knappen, vilken funktion den kör, och koden */
+.demo-card {
+  display: flex;
+  flex-direction: column;
   gap: var(--space-s);
+  padding: var(--space-m);
+  background: var(--color-surface);
+  border: 0.1rem solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.demo-card-function {
+  font-size: var(--font-size-s);
+  color: var(--color-muted);
+}
+
+.demo-card-function code,
+.demo-card-code {
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+}
+
+.demo-card-code {
+  flex: 1;
+  padding: var(--space-s) var(--space-m);
+  font-size: var(--font-size-s);
+  color: var(--color-log-text);
+  background: var(--color-log-bg);
+  border-radius: var(--radius);
+  overflow-x: auto;
 }
 
 .log-title {
