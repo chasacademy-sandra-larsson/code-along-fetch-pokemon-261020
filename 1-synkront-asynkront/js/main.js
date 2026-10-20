@@ -84,7 +84,7 @@ function sayHello() {
 // Titta på klockan och försök skriva i textfältet medan den kör.
 //
 // Gissa: syns "Start" i loggen innan loopen börjar?
-// Min gissning:
+// Min gissning: 
 //
 // Så skulle det se ut om fetch var synkron: hela sidan fryser tills
 // servern svarar.
@@ -125,7 +125,7 @@ function demoTimeout() {
 // Demo 4: setTimeout med 0 millisekunder
 // ---------------------------------------------------------------
 // Gissa: om vi väntar 0 ms, kommer B då före C?
-// Min gissning:
+// Min gissning: 
 
 function demoTimeoutZero() {
   startDemo("4. setTimeout med 0 ms");
